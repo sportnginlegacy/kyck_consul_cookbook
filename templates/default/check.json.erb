@@ -1,0 +1,14 @@
+{
+  "check": {
+<% if @check['id'] %>
+    "id": "<%= @check['id'] %>",
+<% end %>
+<% if @check['type'] == :script %>
+    "script": "<%= @check['script'] %>",
+    "interval": "<%= @check['interval'] %>",
+<% elsif @check['type'] == :ttl %>
+    "ttl": "<%= @check['ttl'] %>",
+<% end %>
+    "name": "<%= @check['name'] %>"
+  }
+}
