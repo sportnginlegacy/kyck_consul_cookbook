@@ -7,7 +7,8 @@ template '/etc/init/consul.conf' do
   mode  '0644'
 end
 
-service 'consul' do
+service 'consul_agent' do
+  service_name 'consul'
   provider Chef::Provider::Service::Upstart
   supports start:   true,
            stop:    true,
