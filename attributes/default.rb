@@ -1,4 +1,6 @@
-default['aws-sdk']['version'] = '1.41.0'
+default['aws-sdk'] = {
+  'version' => '1.41.0'
+}
 
 default['consul'] = {
   'install_type' => 'binary',
