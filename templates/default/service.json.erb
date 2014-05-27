@@ -1,0 +1,24 @@
+{
+  "service": {
+    "name": "<%= @check.name %>",
+<% if @check.id %>
+    "id": "<%= @check.id %>",
+<% end %>
+<% if @check.tags %>
+    "tags": "<%= @check.tags %>",
+<% end %>
+<% if @check.port %>
+    "port": <%= @check.port %>,
+<% end %>
+<% if @check.type %>
+    "check": {
+  <% if @check.type == :script %>
+      "script": "<%= @check.script %>",
+      "interval": "<%= @check.interval %>"
+  <% elsif @check.type == :ttl %>
+      "ttl": "<%= @check.ttl %>"
+  <% end %>
+    }
+<% end %>
+  }
+}
