@@ -41,8 +41,8 @@ def consul_service(user_action)
 
   t = template service_file do
     source 'service.json.erb'
-    owner 'root'
-    group 'root'
+    owner node.consul.user
+    group node.consul.group
     mode '0640'
     action user_action
     # variables check: @current_resource
