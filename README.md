@@ -1,10 +1,13 @@
-# consul-cookbook
+# consul_full
 
-TODO: Enter the cookbook description here.
+Provides install/config recipes for [consul.io](http://consul.io) consul agent.
+Also provides LWRP for service and check definitions.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Known to work on Ubuntu. May work on others.
+
+_Tests to come soon_
 
 ## Attributes
 
