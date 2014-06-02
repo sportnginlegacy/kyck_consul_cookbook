@@ -4,7 +4,7 @@
     "id": "<%= @service['id'] %>",
 <% end %>
 <% if @service['tags'] %>
-    "tags": "<%= @service['tags'] %>",
+    "tags": ["<%= @service['tags'].join('","') %>"],
 <% end %>
 <% if @service['port'] %>
     "port": <%= @service['port'] %>,
