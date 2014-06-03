@@ -47,6 +47,7 @@ def consul_check(user_action)
     variables check: check
     # TODO: Figure out why this fails with Chef::Exceptions::ResourceNotFound
     # notifies :reload, "service[consul_agent]"
+    cookbook 'consul'
   end
 
   new_resource.updated_by_last_action(t.updated_by_last_action?)
