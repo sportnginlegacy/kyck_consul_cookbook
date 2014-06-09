@@ -1,4 +1,4 @@
-include_recipe 'consul_full::install'
+include_recipe 'consul::install'
 
 template '/etc/init/consul.conf' do
   source 'consul.conf.erb'

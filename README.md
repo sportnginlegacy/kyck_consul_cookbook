@@ -1,4 +1,4 @@
-# consul_full
+# consul
 
 Provides install/config recipes for [consul.io](http://consul.io) consul agent.
 Also provides LWRP for service and check definitions.

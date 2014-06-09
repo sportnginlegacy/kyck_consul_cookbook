@@ -1,4 +1,4 @@
-name             'consul_full'
+name             'consul'
 maintainer       'Brandon Dennis'
 maintainer_email 'dennis@kyck.com'
 license          'All rights reserved'

@@ -1,6 +1,6 @@
 consul = node.consul
 
-include_recipe "consul_full::#{consul.install_type}_install"
+include_recipe "consul::#{consul.install_type}_install"
 
 data_dir   = consul.agent.config.data_dir
 config_dir = consul.agent.config.config_dir
