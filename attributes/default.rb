@@ -1,3 +1,7 @@
+default['aws-sdk'] = {
+  'version' => '1.41.0'
+}
+
 default['consul']['install_type'] = 'binary'
 default['consul']['version']      = '0.2.1'
 default['consul']['user']         = 'root'
@@ -13,13 +17,19 @@ default['consul']['agent']['config']['client_addr']       = '127.0.0.1'
 default['consul']['agent']['config']['config_file']       = nil
 default['consul']['agent']['config']['config_dir']        = '/etc/consul.d'
 default['consul']['agent']['config']['data_dir']          = '/var/opt/consul'
-default['consul']['agent']['config']['dc']                = 'dc1'
 default['consul']['agent']['config']['join']              = []
 default['consul']['agent']['config']['log_level']         = 'info'
 default['consul']['agent']['config']['previous_protocol'] = false
 default['consul']['agent']['config']['server']            = false
 default['consul']['agent']['config']['ui_dir']            = nil
 default['consul']['agent']['config']['pid_file']          = '/var/run/consul_agent.pid'
+default['consul']['agent']['config']['vpc_is_dc']         = false
+
+if node['consul']['agent']['config']['vpc_is_dc']
+  default['consul']['agent']['config']['dc'] = node['vpc_id']
+else
+  default['consul']['agent']['config']['dc'] = 'dc1'
+end
 
 default['consul']['agent']['upstart']['gomaxprocs'] = 2
 default['consul']['agent']['upstart']['respawn']['enable']   = true
