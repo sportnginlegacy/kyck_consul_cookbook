@@ -1,11 +1,11 @@
-consul = node.consul
+consul = node['consul']
 
 include_recipe "consul::#{consul.install_type}_install"
 
-data_dir   = consul.agent.config.data_dir
-config_dir = consul.agent.config.config_dir
-user       = consul.user
-group      = consul.group
+data_dir   = consul['agent']['config']['data_dir']
+config_dir = consul['agent']['config']['config_dir']
+user       = consul['user']
+group      = consul['group']
 
 directory data_dir do
   owner user
