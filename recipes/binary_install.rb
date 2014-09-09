@@ -1,8 +1,8 @@
 package 'unzip'
 
-version = node.consul.version
-os      = node.os
-arch    = node.kernel.machine =~ /x86_64/ ? 'amd64' : '386'
+version = node['consul']['version']
+os      = node['os']
+arch    = node['kernel']['machine'] =~ /x86_64/ ? 'amd64' : '386'
 zip     = "#{version}_#{os}_#{arch}.zip"
 url     = "https://dl.bintray.com/mitchellh/consul/#{zip}"
 temp    = '/tmp/consul.zip'
@@ -23,6 +23,6 @@ execute 'unzip_consul' do
 end
 
 execute 'mv_consul' do
-  command "mv #{extract} #{node.consul.agent.path}"
+  command "mv #{extract} #{node['consul']['agent']['path']}"
   action :nothing
 end

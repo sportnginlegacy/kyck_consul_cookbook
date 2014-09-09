@@ -24,4 +24,5 @@ template "#{config_dir}/config.json" do
   owner user
   group group
   mode 0644
+  notifies :reload, 'service[consul_agent]', :immediately
 end

@@ -1,17 +1,19 @@
-<% @config = node.consul.agent.config %>
+<% @config = node['consul']['agent']['config'] %>
 {
-  "node_name": "<%= @config.name %>",
-  "bootstrap": <%= @config.bootstrap %>,
-  "bind_addr": "<%= @config.bind_addr %>",
-  "client_addr": "<%= @config.client_addr %>",
-  "datacenter": "<%= @config.dc %>",
-  "data_dir": "<%= @config.data_dir %>",
-<% if @config.previous_protocol %>
+  "node_name": "<%= @config['name'] %>",
+<% if @config['bootstrap'] %>
+  "bootstrap": <%= @config['bootstrap'] %>,
+<% end %>
+  "bind_addr": "<%= @config['bind_addr'] %>",
+  "client_addr": "<%= @config['client_addr'] %>",
+  "datacenter": "<%= @config['dc'] %>",
+  "data_dir": "<%= @config['data_dir'] %>",
+<% if @config['previous_protocol'] %>
   "protocol": "PREVIOUS",
 <% end %>
-  "server": <%= @config.server %>,
-<% unless @config.ui_dir.nil? %>
-  "ui_dir": "<%= @config.ui_dir %>",
+  "server": <%= @config['server'] %>,
+<% unless @config['ui_dir'].nil? %>
+  "ui_dir": "<%= @config['ui_dir'] %>/dist",
 <% end %>
-  "log_level": "<%= @config.log_level %>"
+  "log_level": "<%= @config['log_level'] %>"
 }
