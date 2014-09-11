@@ -1,5 +1,5 @@
 default['consul']['install_type'] = 'binary'
-default['consul']['version']      = '0.3.0'
+default['consul']['version']      = '0.4.0'
 default['consul']['user']         = 'root'
 default['consul']['group']        = 'root'
 
